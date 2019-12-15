@@ -1,36 +1,22 @@
-%-------------------------
-% Resume in Latex
-% Author : Sourabh Bajaj
-% License : MIT
-%------------------------
-
-\documentclass[letterpaper,11pt]{article}
+\documentclass[11pt]{article}
 
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
 \usepackage{titlesec}
-\usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
-%% \usepackage[pdftex]{hyperref}
-\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{nopageno}
+\usepackage{changepage}
+\usepackage[a4paper, top=0.5in, left=0.5in, right=0.5in, bottom=0.2in]{geometry}
 
-
-\pagestyle{fancy}
-\fancyhf{} % clear all header and footer fields
-\fancyfoot{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.375in}
-\addtolength{\evensidemargin}{-0.375in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
-
-%% \urlstyle{same}
+% Setup appearance of hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=RoyalBlue,
+    urlcolor=RoyalBlue,
+}
+\urlstyle{same}
 
 \raggedbottom
 \raggedright
@@ -41,198 +27,126 @@
   \vspace{-4pt}\scshape\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
+% Changing bullet styles
+\renewcommand{\labelitemi}{$$}
+\renewcommand{\labelitemii}{$\circ$}
+
 %-------------------------
 % Custom commands
-%% \newcommand{\resumeItem}[2]{
-%%   \item\small{
-%%     \textbf{#1}{: #2 \vspace{-2pt}}
-%%   }
-%% }
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
-
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-1pt}\item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-5pt}
-}
-
 \newcommand{\resumeSubItem}[2]{
   \item\small{
     \textbf{#1}{: #2 \vspace{-4pt}}
   }
 }
 
-\renewcommand{\labelitemii}{$\circ$}
+% All commands required to define list of job descriptions
+\newcommand{\jobDescriptionsListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\jobDescription}[5]{  % Args order [5]: Company name, location, position, time, project description
+  \vspace{-1pt}
+  \item
+    \begin{tabular*}{0.99\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small #3} & \textit{\small #4} \\
+    \end{tabular*}
+    \\*[3pt]
+    
+    \begin{adjustwidth}{10pt}{}
+    #5\vspace{-8pt}
+    \end{adjustwidth}
+}
+\newcommand{\jobDescriptionsListEnd}{\end{itemize}}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+% All commands required to define list of achievements for specific job
+\newcommand{\jobAchievementsListStart}{\begin{itemize}}
+\newcommand{\jobAchievement}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+\newcommand{\jobAchievementsListEnd}{\end{itemize}}
+
 
 %-------------------------------------------
-%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
+%%%%%%  CV STARTS HERE  %%%%%%
 \begin{document}
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\Large Ruslan Sakevych} & xlionell@gmail.com\\
-  github.com/lionell & 1-650-391-5608\\
+  \textbf{\huge Vladyslav Sydorenko} & \href{mailto:vladyslav.sydorenko@gmail.com}{vladyslav.sydorenko@gmail.com}\\
+  \href{https://www.linkedin.com/in/vlad-sydorenko/}{linkedin.com/in/vlad-sydorenko/} & +1 (206) 503-32-37\\
 \end{tabular*}
-
-
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {Taras Shevchenko National University}{Kyiv, Ukraine}
-      {M.S. in Computer Science; GPA: 4.92/5.0}{Sep 2018 -- Present}
-    \resumeSubheading
-      {Taras Shevchenko National University}{Kyiv, Ukraine}
-      {B.S. in Computer Science;  GPA: 4.97/5.0}{Sep 2014 -- Jun 2018}
-  \resumeSubHeadingListEnd
 
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
-  \resumeSubHeadingListStart
+  \jobDescriptionsListStart
+    \jobDescription
+      {Amazon Web Services}{Seattle, WA}
+      {Software Development Engineer}{October 2018 - Current}
+      {Member of a team responsible for control plane of storage layer for Amazon Aurora - cloud-native relational database.}
+      \jobAchievementsListStart
+        \jobAchievement{Implemented framework to validate stability of different services after OS patching.}
+        \jobAchievement{Worked on framework for automated testing of project dependency outages handling (e.g. metadata storage outage).}
+        \jobAchievement{Helped to reduce operational costs by automating cleanup of unused and leaked resources.}
+        \jobAchievement{Refactored billing logic in order to optimise IOPS consumption of metadata storage.}
+      \jobAchievementsListEnd
 
-    \resumeSubheading
-      {Google}{Sunnyvale, CA}
-      {Software Engineering Intern}{May 2019 - Aug 2019}
-      \resumeItemListStart
-        \resumeItem{Designed and implemented an automatic build memory regression finder that operated at Google scale.}
-        \resumeItem{Created a developer dashboard for troubleshooting memory regression issues.}
-        \resumeItem{Was able to automatically(via dashboard) pinpoint culprit changes for recent major regressions.}
-      \resumeItemListEnd
+    \jobDescription
+      {RetailMeNot [through SoftServe]}{Kyiv, Ukraine}
+      {Senior Software Engineer}{March 2017 - September 2018}
+      {Through outsourcing company, led team of developers responsible for internal service that performed automated validation of digital coupons and giftcards. }
+      \jobAchievementsListStart
+        \jobAchievement{Managed distributed team of up to 9 developers.}
+        \jobAchievement{Helped to improve success rate of validation jobs from 87\% to 96\%.}
+        \jobAchievement{Migrated multiple system components from Python 2 to Python 3.}
+        \jobAchievement{Set up full CI/CD system with Jenkins/Ansible/Packer instead of custom bash scripts for deployment.}
+      \jobAchievementsListEnd
+    
+    \jobDescription
+      {Cisco [through SoftServe]}{Kyiv, Ukraine}
+      {Software Engineer}{August 2016 - March 2017}
+      {Through outsourcing company worked on refactoring and bugfixing of Cisco Content Security Management Appliance software.}
+      \jobAchievementsListStart
+        \jobAchievement{Had experience working with codebase that contained more than 5 millions lines of code.}
+      \jobAchievementsListEnd
 
-    \resumeSubheading
-      {Google}{Sunnyvale, CA}
-      {Software Engineering Intern}{Aug 2018 - Nov 2018}
-      \resumeItemListStart
-        \resumeItem{Migrated old ML pipeline onto Tensorflow-backed framework TFX. Experience with data processing pipelines.}
-        \resumeItem{Implemented parallel n-ary search algorithm. Speeded up culprit finder 16x times (on millions of changes).}
-        \resumeItem{Designed more sophisticated and robust parallel batching algorithm. Reduced tail request latency 3x times.}
-        \resumeItem{Mined build graph of the whole Google using MapReduce. Did an attack on dependency set similarity problem.}
-      \resumeItemListEnd
+    \jobDescription
+      {Avtobazar}{Kyiv, Ukraine}
+      {Full Stack Software Engineer}{June 2015 - August 2016}
+      {Was working as a full-stack developer for \href{https:\\ab.ua}{ab.ua} - one of the biggest Ukrainian car selling marketplaces.}
+      \jobAchievementsListStart
+        \jobAchievement{Reachitectured processing of media files, including storage, caching and UI interface for management.}
+      \jobAchievementsListEnd
 
-    \resumeSubheading
-      {Facebook}{London, UK}
-      {Software Engineer Intern}{Jan 2018 - Mar 2018}
-      \resumeItemListStart
-        \resumeItem{Rearchitected Hack parser to be reactive, allowing parsing to be inlined with the computation of the result.}
-        \resumeItem{25\% parse time reduction for the Hack type-checker (using most of the file contents) on the full-codebase.}
-        \resumeItem{Up to 50\% speed up for tools that use less information(facts extraction) on hundreds of thousands of files.}
-        \resumeItem{Developed a toolset to analyze and remove unnecessary build dependencies, resulting in 2x speed up.}
-      \resumeItemListEnd
+  \jobDescriptionsListEnd
 
-    \resumeSubheading
-      {Microsoft}{Redmond, WA}
-      {Software Developer Intern}{Jul 2017 - Oct 2017}
-      \resumeItemListStart
-        \resumeItem{Engineered a new workflow to automate raw telemetry data aggregation and transformation.}
-        \resumeItem{System monitors execution of user-defined query and publishes results back to data warehouse.}
-        \resumeItem{Used for intermediate metrics aggregation to reduce data volumes and speed up queries.}
-      \resumeItemListEnd
+%-----------EDUCATION-----------------
+\section{Education}
+  \jobDescription
+      {National Technical University of Ukraine "Igor Sikorsky Kyiv Politechnic Institute"}
+      {}
+      {B.Sc. in Computer Engineering; \linebreak GPA: 3.5}
+      {}
 
-    \resumeSubheading
-      {Google}{Sunnyvale, CA}
-      {Software Engineering Intern}{Apr 2017 - Jul 2017}
-      \resumeItemListStart
-        \resumeItem{Research on build/test time prediction. Performed data analysis, model evaluation and feature engineering.}
-        \resumeItem{Created tools for ML models debugging/visualization and core service efficiency evaluation.}
-        \resumeItem{Investigated and mitigated incidents in complex build infrastructure at Google scale.}
-      \resumeItemListEnd
-
-    \resumeSubheading
-      {Google}{Mountain View, CA}
-      {Software Engineering Intern}{May 2016 - Aug 2016}
-      \resumeItemListStart
-        \resumeItem{Engineered a service that clasterizes build targets to reduce overall resources usage.}
-        \resumeItem{Performed evaluation of different batching strategies: memory, run-time optimization.}
-        \resumeItem{Trained ML models to predict build memory usage and avoid out of memory errors.}
-      \resumeItemListEnd
-
-    %% \resumeSubheading
-    %%   {Coursera}{Mountain View, CA}
-    %%   {Senior Software Engineer}{Jan 2014 - Oct 2016}
-    %%   \resumeItemListStart
-    %%     \resumeItem{Notifications}
-    %%       {Service for sending email, push and in-app notifications. Involved in features such as delivery time optimization, tracking, queuing and A/B testing. Built an internal app to run batch campaigns for marketing etc.}
-    %%     \resumeItem{Nostos}
-    %%       {Bulk data processing and injection service from Hadoop to Cassandra and provides a thin REST layer on top for serving offline computed data online.}
-    %%     \resumeItem{Workflows}
-    %%       {Dataduct an open source workflow framework to create and manage data pipelines leveraging reusables patterns to expedite developer productivity.}
-    %%     \resumeItem{Data Collection}
-    %%       {Designed the internal survey and crowd sourcing platfowm which allowed for creating various tasks for crowd sourding or embedding surveys across the Coursera platform.}
-    %%     \resumeItem{Dev Environment}
-    %%       {Analytics environment based on docker and AWS, standardized the python and R dependencies. Wrote the core libraries that are shared by all data scientists.}
-    %%     \resumeItem{Data Warehousing}
-    %%       {Setup, schema design and management of Amazon Redshift. Built an internal app for access to the data using a web interface. Dataduct integration for daily ETL injection into Redshift.}
-    %%     \resumeItem{Recommendations}
-    %%       {Core service for all recommendation systems at Coursesa, currently used on the homepage and throughout the content discovery process. Worked on both offline training and online serving.}
-    %%     \resumeItem{Content Discovery}
-    %%       {Improved content discovery by building a new onboarding experience on coursera. Using this to personalize the search and browse experience. Also worked on ranking and indexing improvements.}
-    %%     \resumeItem{Course Dashboards}
-    %%       {Instructor dashboards and learner surveying tools, which helped instructors run their class better by providing data on Assignments and Learner Activity.}
-    %%   \resumeItemListEnd
-
-    %% \resumeSubheading
-    %%   {Lucena Research}{Atlanta, GA}
-    %%   {Data Scientist}{Summer 2012 and 2013}
-    %%   \resumeItemListStart
-    %%     \resumeItem{Portfolio Management}
-    %%       {Created models for portfolio hedging,  portfolio optimization and price forecasting. Also creating a strategy backtesting engine used for simulating and backtesting strategies.}
-    %%     \resumeItem{QuantDesk}
-    %%       {Python backend for a web application used by hedge fund managers for portfolio management.}
-    %%   \resumeItemListEnd
-
-    %% \resumeSubheading
-    %%   {Georgia Institute of Technology}{Atlanta, CA}
-    %%   {Research and Teaching Assistant}{Jan 2012 - Dec 2013}
-    %%   \resumeItemListStart
-    %%     \resumeItem{Research Assistant - Machine Learning}
-    %%       {Research on machine learning for portfolio hedging and replication algorithms. Modeling low-risk \& continuous-return strategies. Developed the python library QSTK.}
-    %%     \resumeItem{Teaching Assistant - Computational Investing}
-    %%       {The online course on Coursera, had more than 100,000 students enrolled. It was featured on the 11 Alive News and the Atlanta Journal Constitution. Involved in creating assignment, exams and conducting recitation sessions. Also taught the on-campus version of the course.}
-    %%   \resumeItemListEnd
-
-  \resumeSubHeadingListEnd
-
-
-%-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{Smart Pacmans}
-      {Visualization of how neural networks can be trained using genetic algorithms.}
-    \resumeSubItem{Resolution Theorem Prover}
-      {Based on sequential method and operates in classic first-order logic.}
-    \resumeSubItem{Pollard-Rho}
-      {Parallel implementation of Pollard-Rho algorithm in Go. \textbf{Extra}: Ethereum smart-contract impl.}
-    \resumeSubItem{Parallel PageRank}
-      {Based on MPI and OpenMP. Ultimate goal was to compute Wikipedia pagerank.}
-    \resumeSubItem{Aqua Lang}
-      {Data processing language that uses concepts from relational algebra. Opposite to declarative SQL.}
-  \resumeSubHeadingListEnd
-
-%
-%--------PROGRAMMING SKILLS------------
-%\section{Programming Skills}
-%  \resumeSubHeadingListStart
-%    \item{
-%      \textbf{Languages}{: Scala, Python, Javascript, C++, SQL, Java}
-%      \hfill
-%      \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
-%    }
-%  \resumeSubHeadingListEnd
-
+\renewcommand{\labelitemi}{$\circ$}
+%-----------Extracurricular Activities-----------------
+\section{Extracurricular Activities}
+    \subsection*{Hackathons}
+      \begin{itemize}
+        \resumeSubItem{Cactus 2016 - 1st place}
+          {In 48 hours with a team of 2 developers implemented ML-based platform for remote learning, that had features like attention tracking, live streaming and fraud protection.}
+        \resumeSubItem{AngelHack Lviv 2016 - Finalist}{Developed prototype of GitHub-like system for musicians to collaborate on projects, with features preservation of history of changes, visualization of notes sheet and online editor.}
+      \end{itemize}
+    \subsection*{Certifications}
+        \begin{itemize}
+            \resumeSubItem{Leadership Development Program alumnus}{Graduated 9 months long internal program in SoftServe, created for potential managers and team leaders.}
+            \resumeSubItem{Brainbench Python 3.4 certification}{Scored 4.53/5.0. At the time of passing was in top 20 in the world. \href{https://www.brainbench.com/transcript.jsp?pid=13466801}{Link to the transcript.}}
+        \end{itemize}
+    \subsection*{Other}
+        \begin{itemize}
+            \resumeSubItem{Talk: Internals of CPython memory}
+              {Delivered a talk (in Russian) at KyivPy 2017 meetup: \href{https://youtu.be/-99tauPppoI?t=1}{link to the talk} }
+        \end{itemize}
 
 %-------------------------------------------
 \end{document}
