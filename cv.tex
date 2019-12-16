@@ -8,7 +8,8 @@
 \usepackage{hyperref}
 \usepackage{nopageno}
 \usepackage{changepage}
-\usepackage[a4paper, top=0.5in, left=0.5in, right=0.5in, bottom=0.2in]{geometry}
+\usepackage{fontawesome}
+\usepackage[a4paper, top=0.2in, left=0.3in, right=0.3in, bottom=0.2in]{geometry}
 
 % Setup appearance of hyperlinks
 \hypersetup{
@@ -49,7 +50,7 @@
       \textit{\small #3} & \textit{\small #4} \\
     \end{tabular*}
     \\*[3pt]
-    
+
     \begin{adjustwidth}{10pt}{}
     #5\vspace{-8pt}
     \end{adjustwidth}
@@ -63,7 +64,7 @@
     {#1 \vspace{-2pt}}
   }
 }
-\newcommand{\jobAchievementsListEnd}{\end{itemize}}
+\newcommand{\jobAchievementsListEnd}{\end{itemize}\vspace{-4pt}}
 
 
 %-------------------------------------------
@@ -74,48 +75,53 @@
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
   \textbf{\huge Vladyslav Sydorenko} & \href{mailto:vladyslav.sydorenko@gmail.com}{vladyslav.sydorenko@gmail.com}\\
   \href{https://www.linkedin.com/in/vlad-sydorenko/}{linkedin.com/in/vlad-sydorenko/} & +1 (206) 503-32-37\\
+  & \faMapMarker\ Seattle, WA, 98122
 \end{tabular*}
 
 
 %-----------EXPERIENCE-----------------
+\vspace{-15pt}
 \section{Experience}
   \jobDescriptionsListStart
     \jobDescription
       {Amazon Web Services}{Seattle, WA}
       {Software Development Engineer}{October 2018 - Current}
-      {Member of a team responsible for control plane of storage layer for Amazon Aurora - cloud-native relational database.}
+      {Member of a team responsible for control plane of storage layer for Amazon Aurora - fully managed cloud-native relational database.}
       \jobAchievementsListStart
         \jobAchievement{Implemented framework to validate stability of different services after OS patching.}
         \jobAchievement{Worked on framework for automated testing of project dependency outages handling (e.g. metadata storage outage).}
         \jobAchievement{Helped to reduce operational costs by automating cleanup of unused and leaked resources.}
-        \jobAchievement{Refactored billing logic in order to optimise IOPS consumption of metadata storage.}
+        \jobAchievement{Refactored billing logic in order to optimise metadata storage utilization.}
       \jobAchievementsListEnd
 
     \jobDescription
-      {RetailMeNot [through SoftServe]}{Kyiv, Ukraine}
-      {Senior Software Engineer}{March 2017 - September 2018}
-      {Through outsourcing company, led team of developers responsible for internal service that performed automated validation of digital coupons and giftcards. }
+      {RetailMeNot Inc. [via SoftServe]}{Kyiv, Ukraine}
+      {Senior Software Engineer / Team Lead}{March 2017 - September 2018}
+      {I led a team of developers responsible for highly-loaded and distributed service that performed automated checks of digital coupons validity and gift cards balances for more than 200 merchants in different countries.}
       \jobAchievementsListStart
-        \jobAchievement{Managed distributed team of up to 9 developers.}
-        \jobAchievement{Helped to improve success rate of validation jobs from 87\% to 96\%.}
+        \jobAchievement{Worked as an engineering lead for distributed team of up to 9 developers.}
+        \jobAchievement{Helped to improve percentage of successful validation tasks from 87\% to 96\%.}
+        \jobAchievement{Participated in development of new subservice for automated testing of \href{https://www.retailmenot.com/genie/}{RMN Genie} - browser extension that applies digital coupons for you.}
+        \jobAchievement{Set up full CI/CD system with Jenkins/Ansible/Packer instead of manual deployment process.}
         \jobAchievement{Migrated multiple system components from Python 2 to Python 3.}
-        \jobAchievement{Set up full CI/CD system with Jenkins/Ansible/Packer instead of custom bash scripts for deployment.}
       \jobAchievementsListEnd
-    
+
     \jobDescription
-      {Cisco [through SoftServe]}{Kyiv, Ukraine}
+      {Cisco [via SoftServe]}{Kyiv, Ukraine}
       {Software Engineer}{August 2016 - March 2017}
-      {Through outsourcing company worked on refactoring and bugfixing of Cisco Content Security Management Appliance software.}
+      {Worked on refactoring and bugfixing of Cisco Content Security Management Appliance (\href{https://www.cisco.com/c/en/us/products/security/content-security-management-appliance/index.html}{SMA}) software. Cisco SMA is a hardware appliance, that allows you to manage clusters of other hardware security appliances by Cisco, as well as centralize configuration management and reporting.}
       \jobAchievementsListStart
         \jobAchievement{Had experience working with codebase that contained more than 5 millions lines of code.}
+        \jobAchievement{Successfully delivered project on time.}
       \jobAchievementsListEnd
 
     \jobDescription
       {Avtobazar}{Kyiv, Ukraine}
-      {Full Stack Software Engineer}{June 2015 - August 2016}
+      {Junior Software Engineer}{June 2015 - August 2016}
       {Was working as a full-stack developer for \href{https:\\ab.ua}{ab.ua} - one of the biggest Ukrainian car selling marketplaces.}
       \jobAchievementsListStart
         \jobAchievement{Reachitectured processing of media files, including storage, caching and UI interface for management.}
+        \jobAchievement{Worked on splitting monolithic application into multiple RESTful services.}
       \jobAchievementsListEnd
 
   \jobDescriptionsListEnd
@@ -125,7 +131,7 @@
   \jobDescription
       {National Technical University of Ukraine "Igor Sikorsky Kyiv Politechnic Institute"}
       {}
-      {B.Sc. in Computer Engineering; \linebreak GPA: 3.5}
+      {Bachelor of Science in Computer Engineering; GPA: 3.5}
       {}
 
 \renewcommand{\labelitemi}{$\circ$}
@@ -133,19 +139,22 @@
 \section{Extracurricular Activities}
     \subsection*{Hackathons}
       \begin{itemize}
-        \resumeSubItem{Cactus 2016 - 1st place}
+        \resumeSubItem{CactusHack Kyiv 2016 - 1st place}
           {In 48 hours with a team of 2 developers implemented ML-based platform for remote learning, that had features like attention tracking, live streaming and fraud protection.}
-        \resumeSubItem{AngelHack Lviv 2016 - Finalist}{Developed prototype of GitHub-like system for musicians to collaborate on projects, with features preservation of history of changes, visualization of notes sheet and online editor.}
+        \resumeSubItem{AngelHack Lviv 2016 - Finalist}{Developed prototype of GitHub-like system for musicians to collaborate on projects, with features like preservation of history of changes, visualization of notes sheet and online editor.}
+        \vspace{-7pt}
       \end{itemize}
     \subsection*{Certifications}
         \begin{itemize}
-            \resumeSubItem{Leadership Development Program alumnus}{Graduated 9 months long internal program in SoftServe, created for potential managers and team leaders.}
+            \resumeSubItem{Leadership Development Program alumnus}{Graduated 9 months long internal program at SoftServe, created for potential managers and project leaders.}
             \resumeSubItem{Brainbench Python 3.4 certification}{Scored 4.53/5.0. At the time of passing was in top 20 in the world. \href{https://www.brainbench.com/transcript.jsp?pid=13466801}{Link to the transcript.}}
+        \vspace{-7pt}
         \end{itemize}
     \subsection*{Other}
         \begin{itemize}
-            \resumeSubItem{Talk: Internals of CPython memory}
-              {Delivered a talk (in Russian) at KyivPy 2017 meetup: \href{https://youtu.be/-99tauPppoI?t=1}{link to the talk} }
+            \resumeSubItem{Talk: "Internals of CPython memory"}
+              {Delivered a talk at KyivPy 2017 meetup: \href{https://youtu.be/-99tauPppoI?t=1}{link to the talk} }
+            \resumeSubItem{Interests}{Highload and distributed systems.}
         \end{itemize}
 
 %-------------------------------------------
